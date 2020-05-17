@@ -11,9 +11,11 @@
       href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"
     />
   </head>
-  <body>
+  <body style="-webkit-app-region: drag;">
+    <div id="pomodoroDiv"></div>
     <div id="timerDiv"></div>
     <div id="userDiv"></div>
+    <input id="takeBreakButton" type="button" value="Take Break!" style="-webkit-app-region: no-drag;"></input>
     <div id="firebaseAuthDiv"></div>
 
     <script type="text/javascript" src="index.js"></script>
