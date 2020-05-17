@@ -6,11 +6,12 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      nativeWindowOpen: true
     }
   });
-
-  win.loadFile("app/index.html");
+  win.webContents.openDevTools();
+  win.loadURL(`file://${__dirname}/app/index.html`);
 
   win.webContents.on("did-finish-load", () => {
     win.webContents.send("init");
