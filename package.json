@@ -18,12 +18,11 @@
   },
   "homepage": "https://github.com/vinkashq/assist#readme",
   "devDependencies": {
-    "electron": "^8.3.0"
+    "electron": "^8.3.0",
+    "electron-packager": "^14.2.1"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "firebase": "^7.14.4",
-    "firebaseui": "^4.5.0",
     "moment": "^2.25.3"
   }
 }

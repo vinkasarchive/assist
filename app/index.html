@@ -2,22 +2,80 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <title>Vinkas Assist</title>
     <link
       type="text/css"
       rel="stylesheet"
-      href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"
+      href="../vendor/mdl/material.min.css"
     />
+    <link type="text/css" rel="stylesheet" href="styles/app.css" />
   </head>
-  <body style="-webkit-app-region: drag;">
-    <div id="pomodoroDiv"></div>
-    <div id="timerDiv"></div>
-    <div id="userDiv"></div>
-    <input id="takeBreakButton" type="button" value="Take Break!" style="-webkit-app-region: no-drag;"></input>
-    <div id="firebaseAuthDiv"></div>
+  <body id="body" class="app anon work">
+    <div class="mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <h1 class="mdl-layout-title">Vinkas Assist</h1>
+          <div class="mdl-layout-spacer"></div>
+          <nav class="mdl-navigation">
+            <div id="userDiv" class="mdl-navigation__link"></div>
+          </nav>
+        </div>
+      </header>
 
+      <section><span>Today: </span><span id="durationSpan"></span></section>
+
+      <section class="work">
+        <div class="flex-container">
+          <button
+            id="startWorkButton"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+          >
+            Start Work
+          </button>
+        </div>
+      </section>
+
+      <section class="break">
+        <div class="flex-container">
+          <button
+            id="shortBreakButton"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary"
+          >
+            Take short break
+          </button>
+          <button
+            id="longBreakButton"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary"
+          >
+            Take long break
+          </button>
+          <button
+            id="continueWorkButton"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+          >
+            Work 5 more minutes
+          </button>
+        </div>
+      </section>
+
+      <footer>
+        <div class="flex-container">
+          <button
+            id="leaveButton"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+          >
+            Leave
+          </button>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../vendor/firebasejs/firebase-app.js"></script>
+    <script src="../vendor/firebasejs/firebase-auth.js"></script>
+    <script src="../vendor/firebasejs/firebase-database.js"></script>
+    <script type="text/javascript" src="firebase-auth.js"></script>
+    <script type="text/javascript" src="../vendor/mdl/material.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="index.js"></script>
   </body>
 </html>

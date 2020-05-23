@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+body.timer {
+  padding: 0;
+  margin: 0;
+  height: 39px;
+  overflow: hidden;
+}
+
+header,
+section {
+  clear: both;
+  margin-bottom: 32px;
+}
+
+header h1 {
+  flex-grow: 1;
+}
+
+section.work,
+section.break {
+  display: none;
+}
+
+body.work section.work,
+body.break section.break {
+  display: block;
+}
+
+.flex-container {
+  margin: 16px auto;
+  width: 45%;
+  display: flex;
+}
+
+section.work .flex-container,
+footer .flex-container {
+  width: 15%;
+}
+
+.app section {
+  flex-grow: 1;
+}
+
+.app section button,
+.app footer button {
+  flex-grow: 1;
+  margin: 0 8px;
+}
+
+.timer section {
+  background-color: rgb(63, 81, 181);
+  display: flex;
+}
+
+.timer section div {
+  flex-grow: 1;
+}
+
+.mdl-button {
+  background-color: white;
+}
+
+.mdl-button:hover {
+  background-color: white;
+}
+
+.timer .mdl-button {
+  height: 39px !important;
+  line-height: 39px !important;
+}
