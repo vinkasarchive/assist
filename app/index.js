@@ -11,6 +11,21 @@ const sessionUpdated = (data) => {
   db.ref(datePath).update({ duration: durationToday });
 };
 
+const say = (text) => {
+  if ("speechSynthesis" in window) {
+    var message = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(message);
+  }
+};
+
+const repeat = (text) => {
+  say(text);
+  const timer = setInterval(() => {
+    if (body.classList.contains("break")) say(text);
+    else clearInterval(timer);
+  }, 30000);
+};
+
 ipcRenderer.on("load", () => {
   firebase.auth().onAuthStateChanged(function (u) {
     user = u;
@@ -33,6 +48,8 @@ ipcRenderer.on("load", () => {
 
   continueWorkButton.addEventListener("click", () => {
     ipcRenderer.send("continueWork");
+    body.classList.remove("work");
+    body.classList.remove("break");
   });
 
   shortBreakButton.addEventListener("click", () => {
@@ -52,6 +69,8 @@ ipcRenderer.on("timerEnd", (_, params) => {
   if (params["type"] == 1) {
     body.classList.add("break");
     body.classList.remove("work");
+
+    if (!params["seconds"]) repeat("Take a break!");
 
     if (user) {
       const startTime = moment(params["startTime"]);

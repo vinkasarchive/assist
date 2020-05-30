@@ -5,6 +5,7 @@ const WORK_TIMER = 1,
 let timer, timerType, seconds, startTime, endTime;
 
 const timerEnd = (seconds) => {
+  clearInterval(timer);
   ipcRenderer.send("timerEnd", {
     type: timerType,
     seconds: seconds,
